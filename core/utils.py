@@ -3,6 +3,7 @@ from pathlib import Path
 from dotenv import load_dotenv 
 
 def setting(layout="centered"):
+    load_dotenv()
     st.set_page_config(layout=layout)
     read_mdfile("./static/css/css.md")
 

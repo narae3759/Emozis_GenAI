@@ -17,13 +17,20 @@ def make_card(col, idx):
 ###########################################################################
 # Page 시작
 ###########################################################################
+st.session_state["Home"] = "여기는 Home 입니다."
+if "create_btn" not in st.session_state:
+    st.session_state["create_btn"] = 1
+
 img_url = "https://i.postimg.cc/XJ9gFk48/openart-image-CKz-Cdiz-L-1724052914963-raw.jpg"
 
 st.markdown("Hello")
 
 columns = st.columns(spec=[0.2,0.6,0.2])
 with columns[1]:
-    img = image_select("캐릭터 생성", [img_url])
+    img = image_select("캐릭터 생성", [img_url], return_value="index", key="create_btn")
+    
+if st.session_state["create_btn"] == 0:
+    st.switch_page("pages/page1.py")
 
 st.markdown("캐릭터 목록")
 
