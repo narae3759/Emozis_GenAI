@@ -9,7 +9,9 @@ langsmith==0.1.84
 loguru
 python-dotenv==1.0.1
 pymongo==4.8.0
-streamlit
 st-pages
+streamlit
+streamlit-authenticator
 streamlit-image-select
 streamlit-tags
+
