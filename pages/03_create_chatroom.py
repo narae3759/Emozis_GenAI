@@ -14,14 +14,7 @@ img_url = "https://i.postimg.cc/XJ9gFk48/openart-image-CKz-Cdiz-L-1724052914963-
 
 st.markdown("Hello")
 
-import streamlit as st
-
-def test():
-    st.rerun()
-
-with st.popover("프로필 선택", use_container_width=True):
-    create_character = image_select("캐릭터 생성", [img_url,img_url,img_url,img_url,img_url,img_url],key=1)
-    st.button(label="적용", use_container_width=True, type="primary", on_click=test)
+st.text_input(label="채팅방 제목")
 
 col1, col2 = st.columns(spec=[0.3,0.7])
 col1.image(img_url, width=200)
@@ -53,4 +46,4 @@ st.text_area(label="Details",height=200)
 
 start_btn = st.button("대화 시작", use_container_width=True, type="primary")
 if start_btn:
-    st.switch_page("pages/page2.py")
+    st.switch_page("pages/04_chatting.py")
