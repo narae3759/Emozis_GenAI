@@ -12,7 +12,6 @@ from langchain.memory import ConversationBufferMemory
 from langchain_core.runnables import RunnableLambda, RunnablePassthrough
 from operator import itemgetter
 
-from google.api_core import exceptions
 #-------------------------------------------------------------------
 # Settings
 #-------------------------------------------------------------------
