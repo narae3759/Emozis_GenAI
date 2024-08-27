@@ -8,7 +8,8 @@ setting()
 
 # Sidebar
 nav = get_nav_from_toml(".streamlit/pages.toml")
-add_page_title()
+pg = st.navigation(nav)
+add_page_title(pg)
 ###########################################################################
 # Page 시작
 ###########################################################################
