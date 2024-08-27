@@ -44,12 +44,16 @@ def end_chat():
 #-------------------------------------------------------------------
 import requests 
 import json 
-url = "http://172.16.2.10:8000/character"
-response = requests.get(url)
-if response.status_code == 200:
-    data = {i:x for i, x in enumerate(json.loads(response.text)["data"],1)}
-else:
-    print("NO")
+
+try:
+    url = "http://172.16.2.10:8000/character"
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = {i:x for i, x in enumerate(json.loads(response.text)["data"],1)}
+    else:
+        print("NO")
+except:
+    data = []
 
 if st.session_state["page"] == 1:
     # 2행의 열 구성: 각 행에 4개의 열을 생성
