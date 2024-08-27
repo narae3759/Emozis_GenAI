@@ -4,7 +4,7 @@ import os
 from pathlib import Path 
 from loguru import logger
 
-from core.config import const
+from core.config import configs
 
 class InterceptHandler(logging.Handler):
     """logging의 핸들러를 loguru에 적용시키는 클래스"""
@@ -42,12 +42,6 @@ class CustomLogger:
             enqueue=True,
             format=self.formatter,
             level="INFO"
-        )
-
-        self.logger.add(
-            Path(__file__).parents[1] / const.LOG_DIR_PATH,
-            format=self.formatter,
-            level="DEBUG"
         )
 
         logging.basicConfig(handlers=[InterceptHandler()], level=0, force=True)

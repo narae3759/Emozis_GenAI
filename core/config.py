@@ -4,7 +4,7 @@ from pathlib import Path
 class Config:
     """config 폴더의 정보를 불러오는 클래스"""
     def __init__(self):
-        self.path = Path(__file__).parents[2] / "configs"
+        self.path = Path(__file__).parents[1] / "configs"
         self._set_attributes()
 
     def _read_config(self):

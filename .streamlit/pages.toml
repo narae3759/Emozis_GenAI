@@ -1,9 +1,4 @@
 [[pages]]
-path = "Home.py"
-name = "HOME"
-icon = "🎈"
-
-[[pages]]
 path = "pages/test.py"
 name = "테스트용"
 icon = "🎈"

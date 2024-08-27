@@ -2,9 +2,8 @@ import streamlit as st
 from pathlib import Path 
 from dotenv import load_dotenv 
 
-def setting(layout="centered"):
+def setting():
     load_dotenv()
-    st.set_page_config(layout=layout)
     read_mdfile("./static/css/css.md")
 
 def read_mdfile(filepath:str) -> st.markdown:
