@@ -2,12 +2,12 @@
 import streamlit as st
 from core.utils import *
 from streamlit_image_select import image_select
-from st_pages import show_pages_from_config, add_page_title
+from st_pages import get_nav_from_toml, add_page_title
 
 setting()
 
 # Sidebar
-show_pages_from_config()
+nav = get_nav_from_toml(".streamlit/pages.toml")
 add_page_title()
 ###########################################################################
 # Page 시작
