@@ -5,16 +5,9 @@ from pymongo import MongoClient
 from core.logger import logger 
 from core.config import configs
 from urllib.parse import quote_plus
-from bson import ObjectId
 
 config = configs.mongodb
 
-# 사용자 정의 JSON 인코더 클래스
-class JSONEncoder(json.JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, ObjectId):
-            return str(obj)
-        return super(JSONEncoder, self).default(obj)
 
 class MongoDB:
     def __init__(self):
@@ -61,36 +54,5 @@ class MongoDB:
             return self.collection
         else:
             logger.error(f"컬렉션 이름이 목록에 존재하지 않습니다 - {self.collection_list}")
-
-    @property
-    def documents(self):
-        data = list(self.collection.find())
-
-        return data
-
-    def create(self, document):
-        self.collection.insert_one(document)
-
-        logger.debug(f"➕ Create Document: {document}")
-
-    def update(self, query, new_document):
-        result = self.collection.update_one(
-            query, 
-            {"$set": new_document}
-        )
-        
-        if result.matched_count > 0:
-            logger.debug(f"✔️ Update Document: {new_document}")
-        else:
-            logger.warning("🚨 Update failed due to no matching documents")
-
-    def delete(self, document):
-        result = self.collection.delete_one(document)
-
-        if result.deleted_count > 0:
-            logger.debug(f"➖ Delete Document: {document}")
-        else:
-            logger.warning("🚨 Delete failed due to no matching documents")
-
 
 mongo = MongoDB()
